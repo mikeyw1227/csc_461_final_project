@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn import tree
+import statsmodels.api as sm
 
 test_size = 0.25
 batch_size = 1000
@@ -21,7 +22,13 @@ def main():
     file_name = "adult.data"
     data = get_data(file_name)
     training, validate = train_test_split(data, test_size=test_size)
-    print(validate)
+    # separate feature vectors from labels
+    x_train = training[:, :-1]
+    print(x_train)
+    
+    y_train = training[:, -1]
+    # convert labels to 0 or 1
+    _, labels = np.unique(y_train, return_inverse=True)
 
 
 if __name__ == "__main__":
