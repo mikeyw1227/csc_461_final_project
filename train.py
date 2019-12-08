@@ -6,8 +6,9 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression, SGDClassifier, Perceptron
 from sklearn.neural_network import MLPClassifier
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.neighbors import KNeighborsClassifier
 from enum import Enum
 
 
@@ -22,13 +23,15 @@ class Model(Enum):
     PERCEP = 7
     KNN = 8
     FOREST = 9
+    GB = 10
 
 
 def get_data(csv_file):
     data = pd.read_csv(csv_file)
     data = data.replace(' ?', np.nan)
     data = data.dropna(axis=0)
-    data[data.select_dtypes(['object']).columns] = data.select_dtypes(['object']).apply(lambda x: x.astype('category'))
+    data[data.select_dtypes(['object']).columns] = data.select_dtypes(['object']).apply(
+                                                   lambda x: x.astype('category'))
     cat_cols = data.select_dtypes(['category']).columns
     data[cat_cols] = data[cat_cols].apply(lambda x: x.cat.codes)
     scaler = preprocessing.MinMaxScaler()
@@ -178,6 +181,38 @@ def train_rf(x_train, x_valid, y_train, y_valid):
     return
 
 
+def knn(x, y, params):
+    classifier = KNeighborsClassifier()
+    optimized_classifier = GridSearchCV(classifier, params)
+    return optimized_classifier.fit(x, y)
+
+
+def train_knn(x_train, x_valid, y_train, y_valid):
+    knn_params = {'n_neighbors': [i for i in range(1, 15)],
+                  'algorithm':['auto', 'ball_tree', 'kd_tree', 'brute'],
+                  'weights': ['uniform', 'distance'],
+                  'p': [1, 2]}
+    knn_classifier = knn(x_train, y_train, knn_params)
+    results(knn_classifier, x_valid, y_valid)
+    return
+
+
+def gradient_boosting(x, y, params):
+    classifier = GradientBoostingClassifier()
+    optimized_classifier = GridSearchCV(classifier, params)
+    return optimized_classifier.fit(x, y)
+
+
+def train_gb(x_train, x_valid, y_train, y_valid):
+    gb_params = {'loss': ('deviance', 'exponential'),
+                 'n_estimators': [i for i in range(10, 101, 10)],
+                 'criterion': ('friedman_mse', 'mse', 'mae'),
+                 'max_depth': [i for i in range(5, 105, 10)]}
+    gb_classifier = gradient_boosting(x_train, y_train, gb_params)
+    results(gb_classifier, x_valid, y_valid)
+    return
+
+
 def main():
     # get and clean data
     data = get_data("adult-train.csv")
@@ -185,7 +220,7 @@ def main():
     x_data = data.drop(data.columns[-1], axis=1)
     test_size = 0.25
     x_train, x_valid, y_train, y_valid = train_test_split(x_data, y_data, test_size=test_size)
-    e = Model.PERCEP
+    e = Model.GB
     if e == Model.DT:
         train_dt(x_train, x_valid, y_train, y_valid)
     elif e == Model.SVM:
@@ -201,9 +236,11 @@ def main():
     elif e == Model.PERCEP:
         train_lp(x_train, x_valid, y_train, y_valid)
     elif e == Model.KNN:
-        pass
+        train_knn(x_train, x_valid, y_train, y_valid)
     elif e == Model.FOREST:
         train_rf(x_train, x_valid, y_train, y_valid)
+    elif e == Model.GB:
+        train_gb(x_train, x_valid, y_train, y_valid)
     else:
         train_dt(x_train, x_valid, y_train, y_valid)
         print()
@@ -221,7 +258,10 @@ def main():
         print()
         train_rf(x_train, x_valid, y_train, y_valid)
         print()
-        # TODO copy all functions from above
+        train_knn(x_train, x_valid, y_train, y_valid)
+        print()
+        train_gb(x_train, x_valid, y_train, y_valid)
+        print()
     return
 
 

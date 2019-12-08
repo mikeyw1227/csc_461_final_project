@@ -69,7 +69,8 @@ weighted avg       0.80      0.81      0.80      7541
 
 [[5312  318]
  [1093  818]]
- 
+
+Random Forest 
  {'criterion': 'entropy', 'max_depth': 15, 'n_estimators': 100}
               precision    recall  f1-score   support
 
@@ -111,4 +112,18 @@ weighted avg       0.80      0.81      0.79      7541
 [[5363  322]
  [1112  744]]
 
- 
+KNN
+{'algorithm': 'auto', 'n_neighbors': 13, 'p': 1, 'weights': 'uniform'}
+              precision    recall  f1-score   support
+
+         0.0       0.86      0.92      0.89      5612
+         1.0       0.71      0.57      0.63      1929
+
+    accuracy                           0.83      7541
+   macro avg       0.79      0.74      0.76      7541
+weighted avg       0.82      0.83      0.82      7541
+
+[[5175  437]
+ [ 835 1094]] 
+
+
