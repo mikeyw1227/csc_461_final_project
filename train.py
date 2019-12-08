@@ -151,7 +151,7 @@ def train_mlp(x_train, x_valid, y_train, y_valid):
     results(mlp_classifier, x_valid, y_valid)
     return
 
-def linear_perceptron(x, y, params):
+def perceptron(x, y, params):
     classifier = Perceptron()
     optimized_classifier = GridSearchCV(classifier, params)
     return optimized_classifier.fit(x, y)
@@ -160,7 +160,7 @@ def linear_perceptron(x, y, params):
 def train_lp(x_train, x_valid, y_train, y_valid):
     lp_params = {'penalty': ['l2', 'l1', 'elasticnet'],
                  'max_iter': [1000, 5000, 10000]}
-    lp_classifier = linear_perceptron(x_train, y_train, lp_params)
+    lp_classifier = perceptron(x_train, y_train, lp_params)
     results(lp_classifier, x_valid, y_valid)
     return
 
@@ -205,9 +205,9 @@ def gradient_boosting(x, y, params):
 
 def train_gb(x_train, x_valid, y_train, y_valid):
     gb_params = {'loss': ('deviance', 'exponential'),
-                 'n_estimators': [i for i in range(10, 101, 10)],
+                 'n_estimators': [i for i in range(10, 21, 1)],
                  'criterion': ('friedman_mse', 'mse', 'mae'),
-                 'max_depth': [i for i in range(5, 105, 10)]}
+                 'max_depth': [i for i in range(5, 16, 5)]}
     gb_classifier = gradient_boosting(x_train, y_train, gb_params)
     results(gb_classifier, x_valid, y_valid)
     return

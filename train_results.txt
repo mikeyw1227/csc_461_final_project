@@ -98,7 +98,7 @@ weighted avg       0.83      0.84      0.83      7541
 [[5442  283]
  [ 917  899]]
 
-Linear Perceptron
+Perceptron
 {'max_iter': 1000, 'penalty': 'l2'}
               precision    recall  f1-score   support
 
