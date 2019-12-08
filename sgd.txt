@@ -1,0 +1,93 @@
+SGD SVM
+{'loss': 'hinge', 'max_iter': 100000, 'penalty': 'l2'}
+              precision    recall  f1-score   support
+
+         0.0       0.84      0.95      0.89      5705
+         1.0       0.75      0.46      0.57      1836
+
+    accuracy                           0.83      7541
+   macro avg       0.80      0.70      0.73      7541
+weighted avg       0.82      0.83      0.81      7541
+
+[[5417  288]
+ [ 994  842]]
+
+{'loss': 'hinge', 'max_iter': 10000, 'penalty': 'l2'}
+              precision    recall  f1-score   support
+
+         0.0       0.86      0.92      0.89      5701
+         1.0       0.69      0.53      0.60      1840
+
+    accuracy                           0.83      7541
+   macro avg       0.77      0.73      0.74      7541
+weighted avg       0.82      0.83      0.82      7541
+
+[[5251  450]
+ [ 858  982]]
+ 
+{'loss': 'hinge', 'max_iter': 750, 'penalty': 'elasticnet'}
+              precision    recall  f1-score   support
+
+         0.0       0.82      0.98      0.89      5699
+         1.0       0.82      0.34      0.48      1842
+
+    accuracy                           0.82      7541
+   macro avg       0.82      0.66      0.68      7541
+weighted avg       0.82      0.82      0.79      7541
+
+[[5561  138]
+ [1222  620]]
+ 
+ {'loss': 'hinge', 'max_iter': 8000, 'penalty': 'l2'}
+              precision    recall  f1-score   support
+
+         0.0       0.82      0.96      0.89      5673
+         1.0       0.77      0.38      0.51      1868
+
+    accuracy                           0.82      7541
+   macro avg       0.80      0.67      0.70      7541
+weighted avg       0.81      0.82      0.79      7541
+
+[[5464  209]
+ [1162  706]]
+
+{'max_iter': 79400, 'penalty': 'elasticnet'}
+              precision    recall  f1-score   support
+
+         0.0       0.82      0.96      0.89      5638
+         1.0       0.78      0.39      0.52      1903
+
+    accuracy                           0.82      7541
+   macro avg       0.80      0.68      0.70      7541
+weighted avg       0.81      0.82      0.80      7541
+
+[[5422  216]
+ [1157  746]]
+
+{'eta0': 0.001, 'learning_rate': 'optimal', 'loss': 'hinge', 'max_iter': 6000, 'penalty': 'l2'}
+              precision    recall  f1-score   support
+
+         0.0       0.83      0.95      0.89      5666
+         1.0       0.75      0.43      0.54      1875
+
+    accuracy                           0.82      7541
+   macro avg       0.79      0.69      0.72      7541
+weighted avg       0.81      0.82      0.80      7541
+
+[[5394  272]
+ [1073  802]]
+ 
+ SGD Logistic Regression
+ {'eta0': 0.001, 'learning_rate': 'optimal', 'loss': 'log', 'max_iter': 8000, 'penalty': 'l1'}
+              precision    recall  f1-score   support
+
+         0.0       0.83      0.94      0.88      5630
+         1.0       0.72      0.43      0.54      1911
+
+    accuracy                           0.81      7541
+   macro avg       0.77      0.69      0.71      7541
+weighted avg       0.80      0.81      0.80      7541
+
+[[5312  318]
+ [1093  818]]
+ 
