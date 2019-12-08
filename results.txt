@@ -1,0 +1,114 @@
+Decision Tree
+{'criterion': 'gini', 'max_depth': 5, 'splitter': 'best'}
+              precision    recall  f1-score   support
+
+         0.0       0.86      0.95      0.90      5695
+         1.0       0.78      0.53      0.63      1846
+
+    accuracy                           0.85      7541
+   macro avg       0.82      0.74      0.77      7541
+weighted avg       0.84      0.85      0.84      7541
+
+[[5424  271]
+ [ 869  977]]
+
+
+SVM
+{'C': 0.7, 'degree': 4, 'gamma': 'scale', 'kernel': 'poly'}
+              precision    recall  f1-score   support
+
+         0.0       0.87      0.94      0.90      5719
+         1.0       0.74      0.56      0.64      1822
+
+    accuracy                           0.85      7541
+   macro avg       0.80      0.75      0.77      7541
+weighted avg       0.84      0.85      0.84      7541
+
+[[5352  367]
+ [ 794 1028]]
+
+
+Logistic Regression
+{'max_iter': 100, 'penalty': 'none', 'solver': 'lbfgs'}
+              precision    recall  f1-score   support
+
+         0.0       0.84      0.94      0.89      5706
+         1.0       0.70      0.46      0.55      1835
+
+    accuracy                           0.82      7541
+   macro avg       0.77      0.70      0.72      7541
+weighted avg       0.81      0.82      0.81      7541
+
+[[5353  353]
+ [ 999  836]]
+
+SGD SVM
+{'loss': 'hinge', 'max_iter': 100000, 'penalty': 'l2'}
+              precision    recall  f1-score   support
+
+         0.0       0.84      0.95      0.89      5705
+         1.0       0.75      0.46      0.57      1836
+
+    accuracy                           0.83      7541
+   macro avg       0.80      0.70      0.73      7541
+weighted avg       0.82      0.83      0.81      7541
+
+[[5417  288]
+ [ 994  842]]
+
+SGD Logistic Regression
+ {'eta0': 0.001, 'learning_rate': 'optimal', 'loss': 'log', 'max_iter': 8000, 'penalty': 'l1'}
+              precision    recall  f1-score   support
+
+         0.0       0.83      0.94      0.88      5630
+         1.0       0.72      0.43      0.54      1911
+
+    accuracy                           0.81      7541
+   macro avg       0.77      0.69      0.71      7541
+weighted avg       0.80      0.81      0.80      7541
+
+[[5312  318]
+ [1093  818]]
+ 
+ {'criterion': 'entropy', 'max_depth': 15, 'n_estimators': 100}
+              precision    recall  f1-score   support
+
+         0.0       0.88      0.94      0.91      5687
+         1.0       0.77      0.62      0.69      1854
+
+    accuracy                           0.86      7541
+   macro avg       0.83      0.78      0.80      7541
+weighted avg       0.86      0.86      0.86      7541
+
+[[5346  341]
+ [ 705 1149]]
+
+Multilayer Perceptron
+{'activation': 'tanh', 'hidden_layer_sizes': [9, 9, 9, 9, 9, 9], 'learning_rate': 'invscaling', 'solver': 'adam'}
+              precision    recall  f1-score   support
+
+         0.0       0.86      0.95      0.90      5725
+         1.0       0.76      0.50      0.60      1816
+
+    accuracy                           0.84      7541
+   macro avg       0.81      0.72      0.75      7541
+weighted avg       0.83      0.84      0.83      7541
+
+[[5442  283]
+ [ 917  899]]
+
+Linear Perceptron
+{'max_iter': 1000, 'penalty': 'l2'}
+              precision    recall  f1-score   support
+
+         0.0       0.83      0.94      0.88      5685
+         1.0       0.70      0.40      0.51      1856
+
+    accuracy                           0.81      7541
+   macro avg       0.76      0.67      0.70      7541
+weighted avg       0.80      0.81      0.79      7541
+
+[[5363  322]
+ [1112  744]]
+
+ 
