@@ -205,9 +205,7 @@ def gradient_boosting(x, y, params):
 
 def train_gb(x_train, x_valid, y_train, y_valid):
     gb_params = {'loss': ('deviance', 'exponential'),
-                 'n_estimators': [i for i in range(10, 21, 1)],
-                 'criterion': ('friedman_mse', 'mse', 'mae'),
-                 'max_depth': [i for i in range(5, 16, 5)]}
+                 'criterion': ('friedman_mse', 'mse', 'mae')}
     gb_classifier = gradient_boosting(x_train, y_train, gb_params)
     results(gb_classifier, x_valid, y_valid)
     return
