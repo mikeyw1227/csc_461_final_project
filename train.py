@@ -158,11 +158,11 @@ def perceptron(x, y, params):
     return optimized_classifier.fit(x, y)
 
 
-def train_lp(x_train, x_valid, y_train, y_valid):
-    lp_params = {'penalty': ['l2', 'l1', 'elasticnet'],
+def train_p(x_train, x_valid, y_train, y_valid):
+    p_params = {'penalty': ['l2', 'l1', 'elasticnet'],
                  'max_iter': [1000, 5000, 10000]}
-    lp_classifier = perceptron(x_train, y_train, lp_params)
-    results(lp_classifier, x_valid, y_valid)
+    p_classifier = perceptron(x_train, y_train, p_params)
+    results(p_classifier, x_valid, y_valid)
     return
 
 
@@ -219,7 +219,7 @@ def main():
     x_data = data.drop(data.columns[-1], axis=1)
     test_size = 0.25
     x_train, x_valid, y_train, y_valid = train_test_split(x_data, y_data, test_size=test_size)
-    e = Model.GB
+    e = Model.PERCEP
     if e == Model.DT:
         train_dt(x_train, x_valid, y_train, y_valid)
     elif e == Model.SVM:
@@ -233,7 +233,7 @@ def main():
     elif e == Model.SGD_LG:
         train_sgd_lg(x_train, x_valid, y_train, y_valid)
     elif e == Model.PERCEP:
-        train_lp(x_train, x_valid, y_train, y_valid)
+        train_p(x_train, x_valid, y_train, y_valid)
     elif e == Model.KNN:
         train_knn(x_train, x_valid, y_train, y_valid)
     elif e == Model.FOREST:
@@ -253,7 +253,7 @@ def main():
         print()
         train_sgd_lg(x_train, x_valid, y_train, y_valid)
         print()
-        train_lp(x_train, x_valid, y_train, y_valid)
+        train_p(x_train, x_valid, y_train, y_valid)
         print()
         train_rf(x_train, x_valid, y_train, y_valid)
         print()
