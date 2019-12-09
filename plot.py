@@ -77,7 +77,9 @@ def main():
           np.array([[10635, 725], [1536, 2164]]),
           np.array([[10689, 671], [1524, 2176]]))
     disp = ConfusionMatrixDisplay(confusion_matrix=cm[0], display_labels=(1, 2))
-    print(disp.plot())
+    fig, ax = plt.subplots()
+    disp.plot(ax=ax)
+    fig.show()
 
 
 if __name__ == "__main__":
