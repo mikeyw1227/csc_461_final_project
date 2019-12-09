@@ -1,0 +1,280 @@
+Decision Tree
+Validation Results
+              precision    recall  f1-score   support
+
+         0.0       0.86      0.96      0.91      5706
+         1.0       0.79      0.52      0.62      1835
+
+    accuracy                           0.85      7541
+   macro avg       0.82      0.74      0.76      7541
+weighted avg       0.84      0.85      0.84      7541
+
+[[5450  256]
+ [ 888  947]]
+
+Test Results
+              precision    recall  f1-score   support
+
+         0.0       0.85      0.95      0.90     11360
+         1.0       0.77      0.50      0.61      3700
+
+    accuracy                           0.84     15060
+   macro avg       0.81      0.73      0.75     15060
+weighted avg       0.83      0.84      0.83     15060
+
+[[10818   542]
+ [ 1843  1857]]
+
+
+Kernel Support Vector Machine
+Validation Results
+              precision    recall  f1-score   support
+
+         0.0       0.87      0.94      0.90      5706
+         1.0       0.75      0.56      0.64      1835
+
+    accuracy                           0.85      7541
+   macro avg       0.81      0.75      0.77      7541
+weighted avg       0.84      0.85      0.84      7541
+
+[[5366  340]
+ [ 816 1019]]
+
+Test Results
+              precision    recall  f1-score   support
+
+         0.0       0.87      0.93      0.90     11360
+         1.0       0.73      0.56      0.64      3700
+
+    accuracy                           0.84     15060
+   macro avg       0.80      0.75      0.77     15060
+weighted avg       0.83      0.84      0.83     15060
+
+[[10610   750]
+ [ 1625  2075]]
+
+
+Logistic Regression
+Validation Results
+              precision    recall  f1-score   support
+
+         0.0       0.84      0.94      0.89      5706
+         1.0       0.73      0.46      0.56      1835
+
+    accuracy                           0.83      7541
+   macro avg       0.78      0.70      0.73      7541
+weighted avg       0.82      0.83      0.81      7541
+
+[[5388  318]
+ [ 996  839]]
+
+Test Results
+              precision    recall  f1-score   support
+
+         0.0       0.84      0.94      0.89     11360
+         1.0       0.70      0.46      0.56      3700
+
+    accuracy                           0.82     15060
+   macro avg       0.77      0.70      0.72     15060
+weighted avg       0.81      0.82      0.81     15060
+
+[[10634   726]
+ [ 1985  1715]]
+
+
+Multi-Layer Perceptron
+Validation Results
+              precision    recall  f1-score   support
+
+         0.0       0.87      0.93      0.90      5706
+         1.0       0.73      0.58      0.65      1835
+
+    accuracy                           0.85      7541
+   macro avg       0.80      0.75      0.77      7541
+weighted avg       0.84      0.85      0.84      7541
+
+[[5319  387]
+ [ 777 1058]]
+
+Test Results
+              precision    recall  f1-score   support
+
+         0.0       0.87      0.92      0.90     11360
+         1.0       0.71      0.57      0.64      3700
+
+    accuracy                           0.84     15060
+   macro avg       0.79      0.75      0.77     15060
+weighted avg       0.83      0.84      0.83     15060
+
+[[10506   854]
+ [ 1574  2126]]
+
+
+Stochastic Gradient Descent Support Vector Machine
+Validation Results
+              precision    recall  f1-score   support
+
+         0.0       0.83      0.96      0.89      5706
+         1.0       0.77      0.39      0.52      1835
+
+    accuracy                           0.82      7541
+   macro avg       0.80      0.68      0.70      7541
+weighted avg       0.82      0.82      0.80      7541
+
+[[5495  211]
+ [1124  711]]
+
+Test Results
+              precision    recall  f1-score   support
+
+         0.0       0.83      0.96      0.89     11360
+         1.0       0.75      0.39      0.51      3700
+
+    accuracy                           0.82     15060
+   macro avg       0.79      0.67      0.70     15060
+weighted avg       0.81      0.82      0.80     15060
+
+[[10881   479]
+ [ 2263  1437]]
+
+
+Stochastic Gradient Descent Logistic Regression
+Validation Results
+              precision    recall  f1-score   support
+
+         0.0       0.82      0.98      0.89      5706
+         1.0       0.84      0.31      0.45      1835
+
+    accuracy                           0.82      7541
+   macro avg       0.83      0.65      0.67      7541
+weighted avg       0.82      0.82      0.78      7541
+
+[[5595  111]
+ [1266  569]]
+
+Test Results
+              precision    recall  f1-score   support
+
+         0.0       0.81      0.97      0.89     11360
+         1.0       0.80      0.31      0.44      3700
+
+    accuracy                           0.81     15060
+   macro avg       0.81      0.64      0.66     15060
+weighted avg       0.81      0.81      0.78     15060
+
+[[11074   286]
+ [ 2568  1132]]
+
+
+Perceptron
+Validation Results
+              precision    recall  f1-score   support
+
+         0.0       0.93      0.61      0.74      5706
+         1.0       0.41      0.85      0.56      1835
+
+    accuracy                           0.67      7541
+   macro avg       0.67      0.73      0.65      7541
+weighted avg       0.80      0.67      0.69      7541
+
+[[3475 2231]
+ [ 268 1567]]
+
+Test Results
+              precision    recall  f1-score   support
+
+         0.0       0.93      0.61      0.73     11360
+         1.0       0.42      0.87      0.56      3700
+
+    accuracy                           0.67     15060
+   macro avg       0.68      0.74      0.65     15060
+weighted avg       0.81      0.67      0.69     15060
+
+[[6875 4485]
+ [ 489 3211]]
+
+
+K Nearest Neighbors
+Validation Results
+              precision    recall  f1-score   support
+
+         0.0       0.87      0.92      0.89      5706
+         1.0       0.68      0.56      0.61      1835
+
+    accuracy                           0.83      7541
+   macro avg       0.77      0.74      0.75      7541
+weighted avg       0.82      0.83      0.82      7541
+
+[[5225  481]
+ [ 813 1022]]
+
+Test Results
+              precision    recall  f1-score   support
+
+         0.0       0.87      0.91      0.89     11360
+         1.0       0.68      0.56      0.62      3700
+
+    accuracy                           0.83     15060
+   macro avg       0.77      0.74      0.75     15060
+weighted avg       0.82      0.83      0.82     15060
+
+[[10374   986]
+ [ 1618  2082]]
+
+
+Random Forest
+Validation Results
+              precision    recall  f1-score   support
+
+         0.0       0.89      0.95      0.92      5706
+         1.0       0.79      0.62      0.69      1835
+
+    accuracy                           0.87      7541
+   macro avg       0.84      0.78      0.81      7541
+weighted avg       0.86      0.87      0.86      7541
+
+[[5409  297]
+ [ 700 1135]]
+
+Test Results
+              precision    recall  f1-score   support
+
+         0.0       0.87      0.94      0.91     11360
+         1.0       0.76      0.58      0.66      3700
+
+    accuracy                           0.85     15060
+   macro avg       0.82      0.76      0.78     15060
+weighted avg       0.84      0.85      0.84     15060
+
+[[10682   678]
+ [ 1562  2138]]
+
+
+Gradient Boosting Decision Tree
+Validation Results
+              precision    recall  f1-score   support
+
+         0.0       0.88      0.95      0.92      5706
+         1.0       0.80      0.61      0.69      1835
+
+    accuracy                           0.87      7541
+   macro avg       0.84      0.78      0.80      7541
+weighted avg       0.86      0.87      0.86      7541
+
+[[5423  283]
+ [ 720 1115]]
+
+Test Results
+              precision    recall  f1-score   support
+
+         0.0       0.87      0.94      0.91     11360
+         1.0       0.77      0.58      0.66      3700
+
+    accuracy                           0.85     15060
+   macro avg       0.82      0.76      0.78     15060
+weighted avg       0.85      0.85      0.85     15060
+
+[[10717   643]
+ [ 1570  2130]]
+
+

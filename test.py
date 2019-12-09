@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 import pandas as pd
 from sklearn import preprocessing
@@ -171,6 +172,20 @@ def best_rf(x_train, y_train, x_valid, y_valid, x_test, y_test):
     return
 
 
+def best_gb(x_train, y_train, x_valid, y_valid, x_test, y_test):
+    print('Gradient Boosting Decision Tree')
+    gb = GradientBoostingClassifier(criterion='friedman_mse', loss='deviance')
+    gb = gb.fit(x_train, y_train)
+    print('Validation Results')
+    results(gb, x_valid, y_valid)
+    print()
+    print('Test Results')
+    results(gb, x_test, y_test)
+    print()
+    print()
+    return
+
+
 def main():
     # get and clean data
     data = get_data("adult-train.csv")
@@ -213,6 +228,7 @@ def main():
     best_rf(x_train, y_train, x_valid, y_valid, x_test, y_test)
 
     # best gradient boosted decision tree
+    # best_gb(x_train, y_train, x_valid, y_valid, x_test, y_test)
 
 
 if __name__ == "__main__":
