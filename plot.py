@@ -3,13 +3,14 @@ import numpy as np
 import seaborn as sn
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn import preprocessing
 
 def plot_accuracy(title, valid, test):
     runs = [i for i in range(1, 11)]
     plt.title(title)
     plt.plot(runs, valid, label='valid')
     plt.plot(runs, test, label='test')
-    plt.legend(loc=3, bbox_to_anchor=(1,0))
+    plt.legend()
     plt.show()
     return
 
@@ -24,14 +25,30 @@ def all_accuracy(title, names, test):
 
 
 def plot_confusion_matrix(array, name):
-    rows = (1, 2)
-    cols = (1, 2)
+    rows = (1, 0)
+    cols = (1, 0)
     df_cm = pd.DataFrame(array, rows, cols)
     plt.title(f'{name} Confusion Matrix')
     sn.set(font_scale=1.4)
-    sn.heatmap(df_cm, annot=True, annot_kws={'size': 16})
+    sn.heatmap(df_cm, annot=True, annot_kws={'size': 16}, fmt='d', cmap=plt.cm.Blues)
     plt.show()
     return
+
+
+def get_data(csv_file):
+    data = pd.read_csv(csv_file)
+    cols = [c for c in data.columns]
+    data = data.replace(' ?', np.nan)
+    data = data.dropna(axis=0)
+    
+    data[data.select_dtypes(['object']).columns] = data.select_dtypes(['object']).apply(
+                                                   lambda x: x.astype('category'))
+    cat_cols = data.select_dtypes(['category']).columns
+    data[cat_cols] = data[cat_cols].apply(lambda x: x.cat.codes)
+    scaler = preprocessing.MinMaxScaler()
+    scaler = scaler.fit(data)
+    data = scaler.transform(data)
+    return pd.DataFrame(data, columns=cols)
 
 
 def main():
@@ -86,7 +103,14 @@ def main():
           np.array([[10359, 1001], [1598, 2102]]),
           np.array([[10635, 725], [1536, 2164]]),
           np.array([[10689, 671], [1524, 2176]]))
-    plot_confusion_matrix(cm[0], names[0])
+    #for c, n in zip(cm, names):
+    #    plot_confusion_matrix(c, n)
+
+    data = get_data('adult-train.csv')
+    print(data.head(20))
+    for c in data:
+        sn.distplot(data[c], kde=False)
+        plt.show()
 
 if __name__ == "__main__":
     main()
