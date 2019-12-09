@@ -3,13 +3,14 @@ import numpy as np
 import pandas as pd
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier, plot_tree, export_graphviz
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression, SGDClassifier, Perceptron
 from sklearn.neural_network import MLPClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.neighbors import KNeighborsClassifier
+import matplotlib.pyplot as plt
 
 def get_data(csv_file):
     data = pd.read_csv(csv_file)
@@ -43,6 +44,9 @@ def best_dt(x_train, y_train, x_valid, y_valid, x_test, y_test):
     results(dt, x_test, y_test)
     print()
     print()
+    plt.figure()
+    plot_tree(dt, filled=True)
+    print(plt.show())
     return
 
 
@@ -160,6 +164,10 @@ def best_rf(x_train, y_train, x_valid, y_valid, x_test, y_test):
     results(rf, x_test, y_test)
     print()
     print()
+    # export_graphviz(rf,
+    #                 feature_names=x_train.columns,
+    #                 filled=True,
+    #                 rounded=True)
     return
 
 
@@ -192,34 +200,34 @@ def main():
     x_test = test.drop(test.columns[-1], axis=1)
    
     # best decision tree
-    best_dt(x_train, y_train, x_valid, y_valid, x_test, y_test)
+    # best_dt(x_train, y_train, x_valid, y_valid, x_test, y_test)
     
     # best kernel svm
-    best_svm(x_train, y_train, x_valid, y_valid, x_test, y_test)
+    # best_svm(x_train, y_train, x_valid, y_valid, x_test, y_test)
 
     # best logistic regression
-    best_lg(x_train, y_train, x_valid, y_valid, x_test, y_test)
+    # best_lg(x_train, y_train, x_valid, y_valid, x_test, y_test)
 
     # best mlp
-    best_mlp(x_train, y_train, x_valid, y_valid, x_test, y_test)
+    # best_mlp(x_train, y_train, x_valid, y_valid, x_test, y_test)
 
     # best sgd svm
-    best_sgd_svm(x_train, y_train, x_valid, y_valid, x_test, y_test)
+    # best_sgd_svm(x_train, y_train, x_valid, y_valid, x_test, y_test)
 
     # best sgd lg
-    best_sgd_lg(x_train, y_train, x_valid, y_valid, x_test, y_test)
+    # best_sgd_lg(x_train, y_train, x_valid, y_valid, x_test, y_test)
 
     # best perceptron
-    best_percep(x_train, y_train, x_valid, y_valid, x_test, y_test)
+    # best_percep(x_train, y_train, x_valid, y_valid, x_test, y_test)
 
     # best knn
-    best_knn(x_train, y_train, x_valid, y_valid, x_test, y_test)
+    # best_knn(x_train, y_train, x_valid, y_valid, x_test, y_test)
 
     # best random forest
     best_rf(x_train, y_train, x_valid, y_valid, x_test, y_test)
 
     # best gradient boosted decision tree
-    best_gb(x_train, y_train, x_valid, y_valid, x_test, y_test)
+    # best_gb(x_train, y_train, x_valid, y_valid, x_test, y_test)
 
 
 if __name__ == "__main__":
