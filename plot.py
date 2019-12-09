@@ -3,6 +3,7 @@ import numpy as np
 import seaborn as sn
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.metrics import plot_confusion_matrix
 
 def plot_accuracy(title, valid, test):
     runs = [i for i in range(1, 11)]
@@ -20,37 +21,6 @@ def all_accuracy(title, names, test):
         plt.plot(runs, t, label=n)
     plt.legend()
     plt.show()
-    return
-
-
-'''
-Code for this block and the next adapted from sklearn documentation:
-https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html
-'''
-def plot_confusion_matrix(cm, name):
-    fig, ax = plt.subplots()
-    im = ax.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
-    ax.figure.colorbar(im, ax=ax)
-    # We want to show all ticks...
-    ax.set(xticks=np.arange(cm.shape[1]),
-           yticks=np.arange(cm.shape[0]),
-           # ... and label them with the respective list entries
-           title=f'{name} Confusion Matrix',
-           ylabel='True label',
-           xlabel='Predicted label')
-    # Rotate the tick labels and set their alignment.
-    plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
-             rotation_mode="anchor")
-    # Loop over data dimensions and create text annotations.
-    fmt = '.2f'
-    thresh = cm.max() / 2.
-    for i in range(cm.shape[0]):
-        for j in range(cm.shape[1]):
-            ax.text(j, i, format(cm[i, j], fmt),
-                    ha="center", va="center",
-                    color="white" if cm[i, j] > thresh else "black")
-    fig.tight_layout()
-    print(fig.show())
     return
 
 

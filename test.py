@@ -11,7 +11,6 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.neighbors import KNeighborsClassifier
 
-
 def get_data(csv_file):
     data = pd.read_csv(csv_file)
     data = data.replace(' ?', np.nan)
@@ -31,6 +30,7 @@ def results(model, x_test, y_test):
     print(classification_report(y_test, y_pred))
     print(confusion_matrix(y_test, y_pred))
     return
+
 
 def best_dt(x_train, y_train, x_valid, y_valid, x_test, y_test):
     print('Decision Tree')
