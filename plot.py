@@ -3,7 +3,7 @@ import numpy as np
 import seaborn as sn
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.metrics import plot_confusion_matrix
+from sklearn.metrics import ConfusionMatrixDisplay
 
 def plot_accuracy(title, valid, test):
     runs = [i for i in range(1, 11)]
@@ -76,7 +76,8 @@ def main():
           np.array([[10359, 1001], [1598, 2102]]),
           np.array([[10635, 725], [1536, 2164]]),
           np.array([[10689, 671], [1524, 2176]]))
-    plot_confusion_matrix(cm[0], names[0])
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm[0], display_labels=(1, 2))
+    print(disp.plot())
 
 
 if __name__ == "__main__":
