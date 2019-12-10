@@ -86,11 +86,11 @@ def main():
             (0.85, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85),
             (0.85, 0.85, 0.85, 0.85, 0.86, 0.85, 0.85, 0.85, 0.85, 0.85))
 
-    #for n, v, t in zip(names, valid, test):
-    #    plot_accuracy(n, v, t)
+    for n, v, t in zip(names, valid, test):
+        plot_accuracy(n, v, t)
 
-    #all_accuracy('Valid', names, valid)
-    #all_accuracy('Test', names, test)
+    all_accuracy('Valid', names, valid)
+    all_accuracy('Test', names, test)
 
     # test_results.txt, test matrices
     cm = (np.array([[10780, 580], [1858, 1842]]),  
@@ -103,8 +103,9 @@ def main():
           np.array([[10359, 1001], [1598, 2102]]),
           np.array([[10635, 725], [1536, 2164]]),
           np.array([[10689, 671], [1524, 2176]]))
-    #for c, n in zip(cm, names):
-    #    plot_confusion_matrix(c, n)
+    
+    for c, n in zip(cm, names):
+        plot_confusion_matrix(c, n)
 
     data = get_data('adult-train.csv')
     print(data.head(20))

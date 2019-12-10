@@ -218,7 +218,8 @@ def main():
     y_data = data.iloc[:, -1]
     x_data = data.drop(data.columns[-1], axis=1)
     test_size = 0.25
-    x_train, x_valid, y_train, y_valid = train_test_split(x_data, y_data, test_size=test_size)
+    x_train, x_valid, y_train, y_valid = train_test_split(x_data, y_data, 
+                                                          test_size=test_size)
     e = Model.PERCEP
     if e == Model.DT:
         train_dt(x_train, x_valid, y_train, y_valid)
